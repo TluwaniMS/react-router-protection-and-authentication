@@ -1,7 +1,8 @@
-import React from "react";
+import React from 'react'
+import LayoutComponent from '../layout-component/LayoutComponent'
 
 const HospitalsComponent = () => {
-  return <div></div>;
-};
+    return <LayoutComponent></LayoutComponent>
+}
 
-export default HospitalsComponent;
+export default HospitalsComponent
