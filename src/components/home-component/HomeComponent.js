@@ -1,7 +1,8 @@
 import React from 'react'
+import LayoutComponent from '../layout-component/LayoutComponent'
 
 const HomeComponent = () => {
-    return <div></div>
+    return <LayoutComponent></LayoutComponent>
 }
 
 export default HomeComponent
