@@ -1,7 +1,7 @@
 import React from 'react'
 
 const LayoutComponent = ({ pageTitle, children }) => {
-    return <div></div>
+    return <div>{children}</div>
 }
 
 export default LayoutComponent

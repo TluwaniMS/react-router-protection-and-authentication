@@ -1,7 +1,7 @@
 import React from 'react'
 
 const AdminLayoutComponent = ({ pageTitle, children }) => {
-    return <div></div>
+    return <div>{children}</div>
 }
 
 export default AdminLayoutComponent
