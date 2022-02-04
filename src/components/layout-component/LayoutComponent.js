@@ -1,6 +1,6 @@
 import React from 'react'
 
-const LayoutComponent = () => {
+const LayoutComponent = ({ pageTitle, children }) => {
     return <div></div>
 }
 

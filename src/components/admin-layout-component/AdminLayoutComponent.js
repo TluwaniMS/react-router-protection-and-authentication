@@ -1,6 +1,6 @@
 import React from 'react'
 
-const AdminLayoutComponent = () => {
+const AdminLayoutComponent = ({ pageTitle, children }) => {
     return <div></div>
 }
 
