@@ -1,6 +1,6 @@
 import React from 'react'
 
-const UsersDisplay = () => {
+const UsersDisplay = ({ user }) => {
     return <div></div>
 }
 

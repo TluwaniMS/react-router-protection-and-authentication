@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react'
 
-const MunicipalitiesDisplay = () => {
-  return <div></div>;
-};
+const MunicipalitiesDisplay = ({}) => {
+    return <div></div>
+}
 
-export default MunicipalitiesDisplay;
+export default MunicipalitiesDisplay

@@ -1,10 +1,9 @@
 .main-nav-bar-container {
     display: flex;
     justify-content: space-between;
-    background-color: #45a29e;
+    background-color: #123c69;
     padding: 1.5rem;
 }
-
 a {
     color: black;
     text-decoration: none;
@@ -12,4 +11,14 @@ a {
 
 .nav-item-label {
     padding-left: 0.5rem;
+}
+
+.nav-bar-item {
+    background-color: #29648a;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+}
+
+.nav-bar-item:hover {
+    background-color: #d1e8e2;
 }

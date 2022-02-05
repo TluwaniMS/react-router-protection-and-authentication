@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react'
 
-const HospitalsDisplay = () => {
-  return <div></div>;
-};
+const HospitalsDisplay = ({ hospital }) => {
+    return <div></div>
+}
 
-export default HospitalsDisplay;
+export default HospitalsDisplay
