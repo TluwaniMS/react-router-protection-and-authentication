@@ -13,7 +13,13 @@ const HospitalsComponent = () => {
         <LayoutComponent>
             {loading && <SpinnerDisplay />}
             {error && <ErrorDisplay />}
-            {data && data.hospitals.map(hospital => <HospitalsDisplay hospital={hospital} />)}
+            {data && (
+                <div className="main-display-content-container">
+                    {data.hospitals.map(hospital => (
+                        <HospitalsDisplay hospital={hospital} />
+                    ))}
+                </div>
+            )}
         </LayoutComponent>
     )
 }

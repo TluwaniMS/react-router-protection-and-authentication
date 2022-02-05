@@ -13,7 +13,13 @@ const MunicipalitiesComponent = () => {
         <LayoutComponent>
             {loading && <SpinnerDisplay />}
             {error && <ErrorDisplay />}
-            {data && data.municipalities.map(municipality => <MunicipalitiesDisplay municipality={municipality} />)}
+            {data && (
+                <div className="main-display-content-container">
+                    {data.municipalities.map(municipality => (
+                        <MunicipalitiesDisplay municipality={municipality} />
+                    ))}
+                </div>
+            )}
         </LayoutComponent>
     )
 }

@@ -13,7 +13,13 @@ const UsersComponent = () => {
         <LayoutComponent>
             {loading && <SpinnerDisplay />}
             {error && <ErrorDisplay />}
-            {data && data.users.map(user => <UsersDisplay user={user} />)}
+            {data && (
+                <div className="main-display-content-container">
+                    {data.users.map(user => (
+                        <UsersDisplay user={user} />
+                    ))}
+                </div>
+            )}
         </LayoutComponent>
     )
 }
