@@ -1,12 +1,13 @@
 import React from 'react'
 import { useMutation } from '@apollo/client'
 import SpinnerDisplay from '../../displays/SpinnerDisplay/SpinnerDisplay'
+import LayoutComponent from '../layout-component/LayoutComponent'
 
 const SignInComponent = () => {
     return (
-        <div>
+        <LayoutComponent>
             <div>Sign in view works!!</div>
-        </div>
+        </LayoutComponent>
     )
 }
 
