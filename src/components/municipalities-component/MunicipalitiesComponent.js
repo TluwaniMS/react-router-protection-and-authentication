@@ -11,7 +11,9 @@ const MunicipalitiesComponent = () => {
 
     return (
         <LayoutComponent>
-            <div>Municipalities view works!!</div>
+            {loading && <SpinnerDisplay />}
+            {error && <ErrorDisplay />}
+            {data && data.municipalities.map(municipality => <MunicipalitiesDisplay municipality={municipality} />)}
         </LayoutComponent>
     )
 }

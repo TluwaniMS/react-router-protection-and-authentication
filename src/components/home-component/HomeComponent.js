@@ -10,7 +10,8 @@ const HomeComponent = () => {
 
     return (
         <LayoutComponent>
-            <div>Home view works!!</div>
+            {loading && <SpinnerDisplay />}
+            {error && <ErrorDisplay />}
         </LayoutComponent>
     )
 }

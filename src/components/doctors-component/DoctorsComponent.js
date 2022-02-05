@@ -11,7 +11,9 @@ const DoctorsComponent = () => {
 
     return (
         <LayoutComponent>
-            <div>Doctors view works!!</div>
+            {loading && <SpinnerDisplay />}
+            {error && <ErrorDisplay />}
+            {data && data.doctors.map(doctor => <DoctorsDisplay doctor={doctor} />)}
         </LayoutComponent>
     )
 }

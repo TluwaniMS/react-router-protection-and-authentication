@@ -11,7 +11,9 @@ const UsersComponent = () => {
 
     return (
         <LayoutComponent>
-            <div>Users view works!!</div>
+            {loading && <SpinnerDisplay />}
+            {error && <ErrorDisplay />}
+            {data && data.users.map(user => <UsersDisplay user={user} />)}
         </LayoutComponent>
     )
 }
