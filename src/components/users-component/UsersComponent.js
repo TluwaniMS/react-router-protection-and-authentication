@@ -6,7 +6,11 @@ import UsersDisplay from '../../displays/UsersDisplay/UsersDisplay'
 import { GET_ALL_USERS } from '../../queries/users.query'
 
 const UsersComponent = () => {
-    return <LayoutComponent></LayoutComponent>
+    return (
+        <LayoutComponent>
+            <div>Users view works!!</div>
+        </LayoutComponent>
+    )
 }
 
 export default UsersComponent

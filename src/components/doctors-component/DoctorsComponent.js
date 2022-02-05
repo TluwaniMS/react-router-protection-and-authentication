@@ -6,7 +6,11 @@ import DoctorsDisplay from '../../displays/DoctorsDisplay/DoctorsDisplay'
 import { GET_ALL_DOCTORS } from '../../queries/doctors.query'
 
 const DoctorsComponent = () => {
-    return <LayoutComponent></LayoutComponent>
+    return (
+        <LayoutComponent>
+            <div>Doctors view works!!</div>
+        </LayoutComponent>
+    )
 }
 
 export default DoctorsComponent

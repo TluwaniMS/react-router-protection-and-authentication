@@ -6,7 +6,11 @@ import MunicipalitiesDisplay from '../../displays/MunicipalitiesDisplay/Municipa
 import { GET_ALL_MUNICIPALITIES } from '../../queries/municipality.query'
 
 const MunicipalitiesComponent = () => {
-    return <LayoutComponent></LayoutComponent>
+    return (
+        <LayoutComponent>
+            <div>Municipalities view works!!</div>
+        </LayoutComponent>
+    )
 }
 
 export default MunicipalitiesComponent

@@ -6,7 +6,11 @@ import HospitalsDisplay from '../../displays/HospitalsDisplay/HospitalsDisplay'
 import { GET_ALL_HOSPITALS } from '../../queries/hospital.query'
 
 const HospitalsComponent = () => {
-    return <LayoutComponent></LayoutComponent>
+    return (
+        <LayoutComponent>
+            <div>Hospitals view works!!</div>
+        </LayoutComponent>
+    )
 }
 
 export default HospitalsComponent
