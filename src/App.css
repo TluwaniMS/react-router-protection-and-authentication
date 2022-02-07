@@ -1,4 +1,15 @@
 .main-display-content-container {
     display: flex;
+    flex-wrap: wrap;
     width: 100%;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    width: 17rem;
+    margin: 2rem;
+}
+
+.card-container-info-container {
+    padding: 0.6rem;
 }

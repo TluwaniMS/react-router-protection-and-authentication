@@ -16,7 +16,7 @@ const MunicipalitiesComponent = () => {
             {data && (
                 <div className="main-display-content-container">
                     {data.municipalities.map(municipality => (
-                        <div key={municipality.id}>
+                        <div className="card" key={municipality.id}>
                             <MunicipalitiesDisplay municipality={municipality} />
                         </div>
                     ))}

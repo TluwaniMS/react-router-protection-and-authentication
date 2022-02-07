@@ -16,7 +16,7 @@ const UsersComponent = () => {
             {data && (
                 <div className="main-display-content-container">
                     {data.users.map(user => (
-                        <div key={user.id}>
+                        <div className="card" key={user.id}>
                             <UsersDisplay user={user} />
                         </div>
                     ))}
