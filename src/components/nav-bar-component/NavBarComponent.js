@@ -12,7 +12,7 @@ import {
     faHospital
 } from '@fortawesome/free-solid-svg-icons'
 
-const NavBarComponent = () => {
+const NavBarComponent = ({ userIsLoggedIn }) => {
     return (
         <div className="main-nav-bar-container">
             <Link to={`/`} className="nav-bar-item">
