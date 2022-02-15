@@ -6,11 +6,15 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import SpinnerDisplay from '../../displays/SpinnerDisplay/SpinnerDisplay'
 import LayoutComponent from '../layout-component/LayoutComponent'
 import { AUTHENTICATION } from '../../mutations/authentication.mutation'
+import { AuthenticationCheck } from '../../display-support/authentication-support'
 import './SignInComponent.css'
+import { useNavigate } from 'react-router-dom'
 
 const SignInComponent = () => {
     const [invalidLoginCredentialsSubmitted, setLoginCredentialStatus] = useState(false)
     const [serverError, setServerStatus] = useState(false)
+
+    const navigate = useNavigate()
 
     const [authenticateUserWithPassword, { data, loading, error }] = useMutation(AUTHENTICATION)
 
@@ -35,8 +39,8 @@ const SignInComponent = () => {
 
     if (data) {
         switch (data.authenticateUserWithPassword.__typename) {
-            case '':
-
+            case AuthenticationCheck.AuthenticationSuccessful:
+                navigate('/')
             default:
                 setLoginCredentialStatus(true)
         }
