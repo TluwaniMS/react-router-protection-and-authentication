@@ -10,6 +10,7 @@ import { AuthenticationCheck } from '../../display-support/authentication-suppor
 import './SignInComponent.css'
 import { AuthenticationErrorType } from '../../display-support/authentication-error-type'
 import { useNavigate } from 'react-router-dom'
+import AuthenticationResponseDisplay from '../../displays/AuthenticationResponseDisplay/AuthenticationResponseDisplay'
 
 const SignInComponent = () => {
     const [loginErrorType, setLoginErrorResponse] = useState('')
@@ -73,6 +74,7 @@ const SignInComponent = () => {
                             ></input>
                             {errors.password?.message}
                         </div>
+                        {errorWithSignIn && <AuthenticationResponseDisplay authenticationErrorType={loginErrorType} />}
                         <div className="login-button-container">
                             <button type="submit">submit</button>
                         </div>

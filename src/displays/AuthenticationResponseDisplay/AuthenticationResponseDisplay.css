@@ -1,0 +1,16 @@
+.response-error-display-container {
+    margin-bottom: 0.7rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.invalid-credentials-alert {
+    background-color: #f7a7a3;
+    border-left: 5px solid #c71910;
+}
+
+.server-error-alert {
+    background-color: #ffd48a;
+    border-left: 5px solid #cf880e;
+}
