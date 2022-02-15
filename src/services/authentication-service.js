@@ -1,7 +1,21 @@
-export const signOut = () => {}
+export const signOut = () => {
+    sessionStorage.removeItem('sessionToken')
+    sessionStorage.removeItem('userInformation')
+}
 
-export const setSessionInformation = () => {}
+export const setSessionInformation = (sessionToken, userSessionData) => {
+    sessionStorage.setItem('sessionToken', sessionToken)
+    sessionStorage.setItem('userInformation', userSessionData)
+}
 
-export const getUserData = () => {}
+export const getUserData = () => {
+    const userData = sessionStorage.getItem('userInformation')
 
-export const getSessionToken = () => {}
+    return userData
+}
+
+export const getSessionToken = () => {
+    const sessionToken = sessionStorage.getItem('sessionToken')
+
+    return sessionToken
+}
