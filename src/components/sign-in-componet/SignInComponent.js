@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import * as yup from 'yup'
 import { useMutation } from '@apollo/client'
 import { useForm } from 'react-hook-form'
@@ -9,6 +9,9 @@ import { AUTHENTICATION } from '../../mutations/authentication.mutation'
 import './SignInComponent.css'
 
 const SignInComponent = () => {
+    const [invalidLoginCredentialsSubmitted, setLoginCredentialStatus] = useState(false)
+    const [serverError, setServerStatus] = useState(false)
+
     const [authenticateUserWithPassword, { data, loading, error }] = useMutation(AUTHENTICATION)
 
     const schema = yup.object({
@@ -28,6 +31,19 @@ const SignInComponent = () => {
     const login = data => {
         authenticateUserWithPassword({ variables: { email: data.email, password: data.password } })
         reset()
+    }
+
+    if (data) {
+        switch (data.authenticateUserWithPassword.__typename) {
+            case '':
+
+            default:
+                setLoginCredentialStatus(true)
+        }
+    }
+
+    if (error) {
+        setServerStatus(true)
     }
 
     return (
