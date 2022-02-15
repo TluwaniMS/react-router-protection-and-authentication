@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import * as yup from 'yup'
 import { useMutation } from '@apollo/client'
 import { useForm } from 'react-hook-form'
@@ -8,11 +8,12 @@ import LayoutComponent from '../layout-component/LayoutComponent'
 import { AUTHENTICATION } from '../../mutations/authentication.mutation'
 import { AuthenticationCheck } from '../../display-support/authentication-support'
 import './SignInComponent.css'
+import { AuthenticationErrorType } from '../../display-support/authentication-error-type'
 import { useNavigate } from 'react-router-dom'
 
 const SignInComponent = () => {
-    const [invalidLoginCredentialsSubmitted, setLoginCredentialStatus] = useState(false)
-    const [serverError, setServerStatus] = useState(false)
+    const [loginErrorType, setLoginErrorResponse] = useState('')
+    const [errorWithSignIn, setSignInError] = useState(false)
 
     const navigate = useNavigate()
 
@@ -22,6 +23,23 @@ const SignInComponent = () => {
         email: yup.string().email('Please enter a valid email').required('Email is required'),
         password: yup.string().required('Password is required')
     })
+
+    useEffect(() => {
+        if (data) {
+            switch (data.authenticateUserWithPassword.__typename) {
+                case AuthenticationCheck.AuthenticationSuccessful:
+                    navigate('/')
+                default:
+                    setSignInError(true)
+                    setLoginErrorResponse(AuthenticationErrorType.InvalidCredentialsError)
+            }
+        }
+
+        if (error) {
+            setSignInError(true)
+            setLoginErrorResponse(AuthenticationErrorType.ServerError)
+        }
+    }, [data, error])
 
     const {
         register,
@@ -35,19 +53,6 @@ const SignInComponent = () => {
     const login = data => {
         authenticateUserWithPassword({ variables: { email: data.email, password: data.password } })
         reset()
-    }
-
-    if (data) {
-        switch (data.authenticateUserWithPassword.__typename) {
-            case AuthenticationCheck.AuthenticationSuccessful:
-                navigate('/')
-            default:
-                setLoginCredentialStatus(true)
-        }
-    }
-
-    if (error) {
-        setServerStatus(true)
     }
 
     return (
