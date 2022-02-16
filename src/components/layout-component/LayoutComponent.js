@@ -8,7 +8,7 @@ const LayoutComponent = ({ pageTitle, children }) => {
 
     return (
         <div>
-            <NavBarComponent />
+            <NavBarComponent userIsLoggedIn={sessionIsactive} />
             {sessionIsactive ? children : <Navigate to={'/sign-in'} />}
         </div>
     )

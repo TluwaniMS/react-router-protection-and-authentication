@@ -2,17 +2,18 @@ import React from 'react'
 import './NavBarComponent.css'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {
-    faHome,
-    faUser,
-    faSignInAlt,
-    faSignOutAlt,
-    faUserMd,
-    faHospitalAlt,
-    faHospital
-} from '@fortawesome/free-solid-svg-icons'
+import { faHome, faUser, faSignOutAlt, faUserMd, faHospitalAlt, faHospital } from '@fortawesome/free-solid-svg-icons'
+import { signOut } from '../../services/authentication-service'
+import { useNavigate } from 'react-router-dom'
 
 const NavBarComponent = ({ userIsLoggedIn }) => {
+    const navigate = useNavigate()
+
+    const logOut = () => {
+        signOut()
+        navigate('/sign-in')
+    }
+
     return (
         <div className="main-nav-bar-container">
             <Link to={`/`} className="nav-bar-item">
@@ -35,14 +36,12 @@ const NavBarComponent = ({ userIsLoggedIn }) => {
                 <FontAwesomeIcon icon={faUser} />
                 <span className="nav-item-label">Users</span>
             </Link>
-            <Link to={`/sign-in`} className="nav-bar-item">
-                <FontAwesomeIcon icon={faSignInAlt} />
-                <span className="nav-item-label">Sign In</span>
-            </Link>
-            <div className="nav-bar-item">
-                <FontAwesomeIcon icon={faSignOutAlt} />
-                <span className="nav-item-label">Sign out</span>
-            </div>
+            {userIsLoggedIn && (
+                <div onClick={() => logOut()} className="nav-bar-item">
+                    <FontAwesomeIcon icon={faSignOutAlt} />
+                    <span className="nav-item-label">Sign out</span>
+                </div>
+            )}
         </div>
     )
 }
