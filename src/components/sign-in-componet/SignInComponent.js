@@ -11,6 +11,7 @@ import './SignInComponent.css'
 import { AuthenticationErrorType } from '../../display-support/authentication-error-type'
 import { useNavigate } from 'react-router-dom'
 import AuthenticationResponseDisplay from '../../displays/AuthenticationResponseDisplay/AuthenticationResponseDisplay'
+import { setSessionInformation } from '../../services/authentication-service'
 
 const SignInComponent = () => {
     const [loginErrorType, setLoginErrorResponse] = useState('')
@@ -29,6 +30,8 @@ const SignInComponent = () => {
         if (data) {
             switch (data.authenticateUserWithPassword.__typename) {
                 case AuthenticationCheck.AuthenticationSuccessful:
+                    const sessionInfo = data.authenticateUserWithPassword
+                    setSessionInformation(sessionInfo.sessionToken, sessionInfo.item)
                     navigate('/')
                 default:
                     setSignInError(true)
@@ -57,31 +60,29 @@ const SignInComponent = () => {
     }
 
     return (
-        <LayoutComponent>
-            <div className="main-login-form-container">
-                <div className="login-form-container">
-                    <form onSubmit={handleSubmit(login)} className="form-input-container">
-                        <div className="input-container">
-                            <input placeholder="email" className="input" {...register('email')}></input>
-                            {errors.email?.message}
-                        </div>
-                        <div className="input-container">
-                            <input
-                                placeholder="password"
-                                type="password"
-                                className="input"
-                                {...register('password')}
-                            ></input>
-                            {errors.password?.message}
-                        </div>
-                        {errorWithSignIn && <AuthenticationResponseDisplay authenticationErrorType={loginErrorType} />}
-                        <div className="login-button-container">
-                            <button type="submit">submit</button>
-                        </div>
-                    </form>
-                </div>
+        <div className="main-login-form-container">
+            <div className="login-form-container">
+                <form onSubmit={handleSubmit(login)} className="form-input-container">
+                    <div className="input-container">
+                        <input placeholder="email" className="input" {...register('email')}></input>
+                        {errors.email?.message}
+                    </div>
+                    <div className="input-container">
+                        <input
+                            placeholder="password"
+                            type="password"
+                            className="input"
+                            {...register('password')}
+                        ></input>
+                        {errors.password?.message}
+                    </div>
+                    {errorWithSignIn && <AuthenticationResponseDisplay authenticationErrorType={loginErrorType} />}
+                    <div className="login-button-container">
+                        <button type="submit">submit</button>
+                    </div>
+                </form>
             </div>
-        </LayoutComponent>
+        </div>
     )
 }
 
