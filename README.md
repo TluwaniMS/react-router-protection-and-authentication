@@ -1,3 +1,6 @@
+# About Repository:
+This is a basic react-js project that I created to learn the basics of react-route protection with overly basic authentication logic.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
