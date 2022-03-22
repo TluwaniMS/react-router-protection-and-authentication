@@ -6,6 +6,9 @@ This is a basic react-js project that I created to learn the basics of react-rou
 
 # Project Setup:
 
+## NB!
+Please clone the following [keystone project](https://github.com/TluwaniMS/keystone-js-test) and make sure that it's running before running this project.
+
 * Step 1:
 
 Switch to the projects root directory and run "npm install" to install the rquired packages.
